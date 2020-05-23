@@ -1,0 +1,16 @@
+var express = require("express");
+var app = express();
+var fs = require('fs');
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
+
+app.get("/", (req, res, next) => {
+    return res.sendFile(__dirname + '/index.html');
+});
+
+app.get("/search", (req, res, next) => {
+    let rawdata = fs.readFileSync('transactions.json');
+    let transactions = JSON.parse(rawdata);
+    return res.json(transactions);
+});
