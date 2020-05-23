@@ -1,24 +1,29 @@
-# client
+# Web Client
 
-## Project setup
-```
-npm install
-```
+Simple web client built in Vue3
 
-### Compiles and hot-reloads for development
+## Setup
+Built on Node version 10
+If using nvm can run `$ nvm use` from api directory (.nvmrc)
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+$ npm install
 ```
 
-### Lints and fixes files
+## Run development server
 ```
-npm run lint
+$ npm run serve
+```
+> API endpoint in .env (make sure port is the same as ../api/.env)
+
+## Build project
+```
+$ npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Deploy
+```
+$ npm run deploy
+```
+Will build in production mode and execute deploy script in ./scripts (placeholder)
+
+[Back](../README.md)

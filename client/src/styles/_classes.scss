@@ -1,0 +1,17 @@
+@import './variables.scss';
+
+.industry-tile {
+  border: $industry-tile-border;
+  padding: 0.4rem 0.6rem;
+  font-size: 1.3rem;
+  margin-right: 0.9rem;
+  margin-top: 0.6rem;
+  display: inline-block;
+  flex-wrap: nowrap;
+}
+
+.industry-tile-relevant {
+  background-color: $respondent-blue;
+  color: white;
+  border-color: $respondent-blue;
+}

@@ -1,18 +1,37 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ProjectDescription />
+    <div v-if="respondents">
+      <RespondentCard v-for="(respondent, i) in respondents" :key="i" :respondent="respondent"/>
+      <PaginateButton />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapState } from 'vuex'
+import ProjectDescription from '@/components/ProjectDescription.vue'
+import RespondentCard from '@/components/RespondentCard.vue'
+import PaginateButton from '@/components/PaginateButton.vue'
 
 export default {
   name: 'Home',
+
   components: {
-    HelloWorld
-  }
+    ProjectDescription,
+    RespondentCard,
+    PaginateButton,
+  },
+
+  created () {
+    this.$store.dispatch('fetchProject')
+    this.$store.dispatch('fetchRespondents')
+  },
+
+  computed: {
+    ...mapState({
+      respondents: state => state.respondents
+    })
+  },
 }
 </script>
